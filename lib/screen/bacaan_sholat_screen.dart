@@ -33,7 +33,11 @@ class BacaanSholatScreen extends StatelessWidget {
           } else if (snapshot.hasError) {
             return const Text("error");
           } else {
-            return const CircularProgressIndicator();
+            return const Center(
+              child: CircularProgressIndicator(
+                strokeWidth: 5,
+              ),
+            );
           }
         },
       ),
