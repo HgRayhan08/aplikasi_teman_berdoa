@@ -1,9 +1,9 @@
 import 'package:aplikasi_teman_berdoa/service/doa_service.dart';
+import 'package:aplikasi_teman_berdoa/widget/expansitiontile_custom_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class DoaHarianScreen extends StatelessWidget {
+  static const routename = "/doaharian";
   const DoaHarianScreen({super.key});
 
   @override
@@ -16,30 +16,28 @@ class DoaHarianScreen extends StatelessWidget {
           future: DoaService().api(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
+              // ignore: no_leading_underscores_for_local_identifiers
               var _doa = snapshot.data;
               return ListView.builder(
                 itemCount: _doa?.data.length,
                 itemBuilder: (context, index) {
-                  return Text(_doa?.data[index].title ?? "");
+                  // return Text(_doa?.data[index].title ?? "");
+                  return ExpansionTileCustom(
+                    listdata: _doa,
+                    titleExtend: _doa?.data[index].title ?? "",
+                    titlelist: _doa?.data[index].arabic ?? "",
+                    subtitle: _doa?.data[index].translation ?? "",
+                  );
                 },
               );
-              // return ListView.builder(
-              //     itemCount: _doa?.length,
-              //     itemBuilder: (context, index) {
-              //       return ExpansionTile(
-              //         title: Text(_doa?[index].doa ?? ""),
-              //         children: [
-              //           ListTile(
-              //             title: Text(_doa?[index].ayat ?? ""),
-              //             subtitle: Text(_doa?[index].artinya ?? ""),
-              //           )
-              //         ],
-              //       );
-              //     });
             } else if (snapshot.hasError) {
               return const Text("error");
             } else {
-              return const CircularProgressIndicator();
+              return const Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 5,
+                ),
+              );
             }
           }),
     );

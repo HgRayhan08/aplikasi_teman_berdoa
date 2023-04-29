@@ -6,6 +6,7 @@ class BacaanSholatService {
   Future<List<ListBacaanSholatResponse>> bacaansholat() async {
     final response = await Dio()
         .get("https://islamic-api-zhirrr.vercel.app/api/bacaanshalat");
+    // ignore: no_leading_underscores_for_local_identifiers
     List<ListBacaanSholatResponse> _bacaansholat = (response.data as List)
         .map(
           (e) => ListBacaanSholatResponse(

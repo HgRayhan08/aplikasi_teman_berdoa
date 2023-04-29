@@ -1,30 +1,28 @@
-import 'package:aplikasi_teman_berdoa/model/list_bacaan_sholat_response.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ExpansionTileCustom extends StatelessWidget {
-  const ExpansionTileCustom({
-    super.key,
-    required List<ListBacaanSholatResponse>? bacaansholat,
-    this.index,
-  }) : _bacaansholat = bacaansholat;
+  // ignore: prefer_typing_uninitialized_variables
+  final listdata;
+  String titleExtend;
+  String titlelist;
+  String subtitle;
 
-  final List<ListBacaanSholatResponse>? _bacaansholat;
-  final index;
+  ExpansionTileCustom(
+      {super.key,
+      required this.listdata,
+      required this.titleExtend,
+      required this.titlelist,
+      required this.subtitle});
 
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      title: Text(_bacaansholat?[index].name ?? ""),
+      title: Text(titleExtend),
       children: [
         ListTile(
-          title: Text(
-            _bacaansholat?[index].arabic ?? "",
-            style: const TextStyle(fontSize: 20),
-          ),
-          subtitle: Text(
-            _bacaansholat?[index].latin ?? "",
-            style: const TextStyle(fontSize: 16),
-          ),
+          title: Text(titlelist),
+          subtitle: Text(subtitle),
         )
       ],
     );

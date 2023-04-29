@@ -3,6 +3,8 @@ import 'package:aplikasi_teman_berdoa/widget/expansitiontile_custom_widget.dart'
 import 'package:flutter/material.dart';
 
 class BacaanSholatScreen extends StatelessWidget {
+  static const routename = "/bacaansholat";
+
   const BacaanSholatScreen({super.key});
 
   @override
@@ -15,13 +17,16 @@ class BacaanSholatScreen extends StatelessWidget {
         future: BacaanSholatService().bacaansholat(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            // ignore: no_leading_underscores_for_local_identifiers
             var _bacaansholat = snapshot.data;
             return ListView.builder(
               itemCount: _bacaansholat?.length,
               itemBuilder: (context, index) {
                 return ExpansionTileCustom(
-                  bacaansholat: _bacaansholat,
-                  index: index,
+                  listdata: _bacaansholat,
+                  titleExtend: _bacaansholat?[index].name ?? "",
+                  titlelist: _bacaansholat?[index].arabic ?? "",
+                  subtitle: _bacaansholat?[index].terjemahan ?? "",
                 );
               },
             );
