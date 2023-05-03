@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: DoaHarianScreen(),
       home: const DashboardScreen(),
-      // home: BacaanSholatScreen(),
       initialRoute: DashboardScreen.routename,
       routes: {
         DashboardScreen.routename: (context) => const DashboardScreen(),

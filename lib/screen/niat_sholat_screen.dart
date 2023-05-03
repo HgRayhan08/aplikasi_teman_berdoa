@@ -12,32 +12,41 @@ class NiatSholatScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Niat Sholat"),
       ),
-      body: FutureBuilder(
-          future: NiatSholatService().niatsholat(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              // ignore: no_leading_underscores_for_local_identifiers
-              var _niat = snapshot.data;
-              return ListView.builder(
-                  itemCount: _niat?.length,
-                  itemBuilder: (context, index) {
-                    return ExpansionTileCustom(
-                      listdata: _niat,
-                      titleExtend: _niat?[index].name ?? "",
-                      titlelist: _niat?[index].arabic ?? "",
-                      subtitle: _niat?[index].terjemahan ?? "",
-                    );
-                  });
-            } else if (snapshot.hasError) {
-              return const Text("error");
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 5,
-                ),
-              );
-            }
-          }),
+      body: Column(
+        children: [
+          Container(
+            height: 300,
+            color: Colors.amber,
+          ),
+          FutureBuilder(
+              future: NiatSholatService().niatsholat(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  // ignore: no_leading_underscores_for_local_identifiers
+                  var _niat = snapshot.data;
+                  return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: _niat?.length,
+                      itemBuilder: (context, index) {
+                        return ExpansionTileCustom(
+                          listdata: _niat,
+                          titleExtend: _niat?[index].name ?? "",
+                          titlelist: _niat?[index].arabic ?? "",
+                          subtitle: _niat?[index].terjemahan ?? "",
+                        );
+                      });
+                } else if (snapshot.hasError) {
+                  return const Text("error");
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      strokeWidth: 5,
+                    ),
+                  );
+                }
+              }),
+        ],
+      ),
     );
   }
 }
