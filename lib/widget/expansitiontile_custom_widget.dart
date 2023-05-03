@@ -18,11 +18,24 @@ class ExpansionTileCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      title: Text(titleExtend),
+      collapsedShape: const Border(bottom: BorderSide(color: Colors.white)),
+      // backgroundColor: Colors.amber,
+      // collapsedBackgroundColor: Colors.amber,
+      title: Text(
+        titleExtend,
+        style: const TextStyle(
+            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+      ),
       children: [
         ListTile(
-          title: Text(titlelist),
-          subtitle: Text(subtitle),
+          title: Text(
+            titlelist,
+            style: const TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          subtitle: Text(
+            subtitle,
+            style: const TextStyle(color: Colors.white, fontSize: 18),
+          ),
         )
       ],
     );
