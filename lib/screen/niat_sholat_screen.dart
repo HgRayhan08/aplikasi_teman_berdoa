@@ -11,6 +11,7 @@ class NiatSholatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff0B2447),
       appBar: AppBar(
         backgroundColor: const Color(0xffA5D7E8),
         bottomOpacity: 0.0,
@@ -65,7 +66,7 @@ class NiatSholatScreen extends StatelessWidget {
                     height: 250,
                   ),
                   Container(
-                    height: 508,
+                    height: 500,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
