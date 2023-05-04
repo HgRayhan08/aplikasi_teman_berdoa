@@ -13,33 +13,44 @@ class BacaanSholatScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Bacaan Sholat"),
       ),
-      body: FutureBuilder(
-        future: BacaanSholatService().bacaansholat(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            // ignore: no_leading_underscores_for_local_identifiers
-            var _bacaansholat = snapshot.data;
-            return ListView.builder(
-              itemCount: _bacaansholat?.length,
-              itemBuilder: (context, index) {
-                return ExpansionTileCustom(
-                  listdata: _bacaansholat,
-                  titleExtend: _bacaansholat?[index].name ?? "",
-                  titlelist: _bacaansholat?[index].arabic ?? "",
-                  subtitle: _bacaansholat?[index].terjemahan ?? "",
-                );
-              },
-            );
-          } else if (snapshot.hasError) {
-            return const Text("error");
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(
-                strokeWidth: 5,
-              ),
-            );
-          }
-        },
+      body: Container(
+        height: 490,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+        child: FutureBuilder(
+          future: BacaanSholatService().bacaansholat(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              // ignore: no_leading_underscores_for_local_identifiers
+              var _bacaansholat = snapshot.data;
+              return ListView.builder(
+                itemCount: _bacaansholat?.length,
+                itemBuilder: (context, index) {
+                  return ExpansionTileCustom(
+                    listdata: _bacaansholat,
+                    titleExtend: _bacaansholat?[index].name ?? "",
+                    titlelist: _bacaansholat?[index].arabic ?? "",
+                    subtitle: _bacaansholat?[index].terjemahan ?? "",
+                  );
+                },
+              );
+            } else if (snapshot.hasError) {
+              return const Center(
+                child: Text("Server Sedang dalam perbaikan"),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 5,
+                ),
+              );
+            }
+          },
+        ),
       ),
     );
   }
