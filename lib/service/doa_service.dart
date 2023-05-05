@@ -8,17 +8,5 @@ class DoaService {
         await Dio().get("https://islamic-api-zhirrr.vercel.app/api/doaharian");
 
     return ListDoaResponse.fromJson(response.data);
-    // List<ListDoaResponse> _doa = (response.data as List)
-    //     .map(
-    //       (e) => ListDoaResponse(
-    //           id: e["id"],
-    //           doa: e["doa"],
-    //           ayat: e["ayat"],
-    //           latin: e["latin"],
-    //           artinya: e["artinya"]),
-    //     )
-    //     .toList();
-    // // print(_doa.first.doa);
-    // return _doa;
   }
 }
