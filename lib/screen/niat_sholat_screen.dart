@@ -10,24 +10,32 @@ class NiatSholatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff0B2447),
-      appBar: AppBar(
-        backgroundColor: const Color(0xffA5D7E8),
-        bottomOpacity: 0.0,
-        elevation: 0.0,
-        title: Text(
-          "Niat Sholat",
-          style: GoogleFonts.openSans(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
+    final mediaQueryHeight = MediaQuery.of(context).size.height;
+
+    final myAppbar = AppBar(
+      backgroundColor: const Color(0xffA5D7E8),
+      bottomOpacity: 0.0,
+      elevation: 0.0,
+      title: Text(
+        "Niat Sholat",
+        style: GoogleFonts.openSans(
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
         ),
       ),
+    );
+
+    final bodyHeight = mediaQueryHeight -
+        myAppbar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
+
+    return Scaffold(
+      backgroundColor: const Color(0xff0B2447),
+      appBar: myAppbar,
       body: Stack(
         children: [
           Container(
-            height: 300,
+            height: bodyHeight * 0.4,
             decoration: const BoxDecoration(
               color: Color(0xffA5D7E8),
             ),
@@ -68,11 +76,11 @@ class NiatSholatScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  const SizedBox(
-                    height: 250,
+                  SizedBox(
+                    height: bodyHeight * 0.3,
                   ),
                   Container(
-                    height: 500,
+                    height: bodyHeight * 0.7,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
