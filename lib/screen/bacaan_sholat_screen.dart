@@ -11,25 +11,33 @@ class BacaanSholatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQueryHeight = MediaQuery.of(context).size.height;
+
+    final myAppbar = AppBar(
+      title: Text(
+        "Teman Doa",
+        style: GoogleFonts.nunito(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+      backgroundColor: const Color(0xffA5D7E8),
+      bottomOpacity: 0,
+      elevation: 0,
+    );
+
+    final bodyheight = mediaQueryHeight -
+        myAppbar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
+
     return Scaffold(
       backgroundColor: const Color(0xff0B2447),
-      appBar: AppBar(
-        title: Text(
-          "Teman Doa",
-          style: GoogleFonts.nunito(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        backgroundColor: const Color(0xffA5D7E8),
-        bottomOpacity: 0,
-        elevation: 0,
-      ),
+      appBar: myAppbar,
       body: Stack(
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            height: 250,
+            height: bodyheight * 0.4,
             color: const Color(0xffA5D7E8),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,39 +45,40 @@ class BacaanSholatScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 60,
+                    SizedBox(
+                      height: bodyheight * 0.1,
                     ),
                     Text(
                       "Mari Menghafal",
                       style: GoogleFonts.nunito(
-                        fontSize: 28,
-                        fontWeight: FontWeight.w800,
+                        fontSize: bodyheight * 0.033,
+                        fontWeight: FontWeight.w900,
                       ),
                     ),
                     Text(
                       "Bacaan Sholat",
                       style: GoogleFonts.nunito(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
+                        fontSize: bodyheight * 0.030,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                   ],
                 ),
                 Image.asset(
                   "assets/images/bacaan.png",
-                  width: 180,
+                  width: bodyheight * 0.26,
                 ),
               ],
             ),
           ),
           Column(
             children: [
-              const SizedBox(
-                height: 230,
+              SizedBox(
+                height: bodyheight * 0.3,
               ),
               Container(
-                height: 510,
+                width: MediaQuery.of(context).size.width,
+                height: bodyheight * 0.7,
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
