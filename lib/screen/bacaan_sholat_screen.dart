@@ -50,7 +50,7 @@ class BacaanSholatScreen extends StatelessWidget {
                     Text(
                       "Bacaan Sholat",
                       style: GoogleFonts.nunito(
-                        fontSize: 22,
+                        fontSize: 24,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
