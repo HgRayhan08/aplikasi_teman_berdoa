@@ -37,7 +37,9 @@ class MenuSholatScreen extends StatelessWidget {
                     "Niat Sholat",
                     style: TextStyle(fontSize: 24, color: Colors.white),
                   ),
-                  Image.asset("assets/images/niat.png"),
+                  Image.asset(
+                    "assets/images/niat.png",
+                  )
                 ],
               ),
             ),
