@@ -49,25 +49,27 @@ class NiatSholatScreen extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 100,
+                      SizedBox(
+                        height: bodyHeight * 0.1,
                       ),
                       Text(
                         "Mari Menghafal",
                         style: GoogleFonts.nunito(
-                            fontSize: 28, fontWeight: FontWeight.w800),
+                            fontSize: bodyHeight * 0.033,
+                            fontWeight: FontWeight.w900),
                       ),
                       Text(
                         "Niat Sholat",
                         style: GoogleFonts.nunito(
-                            fontSize: 24, fontWeight: FontWeight.w700),
+                            fontSize: bodyHeight * 0.030,
+                            fontWeight: FontWeight.w800),
                       ),
                     ],
                   ),
                 ),
                 Image.asset(
                   "assets/images/niat.png",
-                  width: 190,
+                  width: bodyHeight * 0.26,
                 )
               ],
             ),
