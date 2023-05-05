@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class ExpansionTileCustom extends StatelessWidget {
@@ -18,23 +19,26 @@ class ExpansionTileCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
+      iconColor: Colors.white,
+      collapsedIconColor: Colors.white,
       collapsedShape: const Border(bottom: BorderSide(color: Colors.white)),
-      // backgroundColor: Colors.amber,
-      // collapsedBackgroundColor: Colors.amber,
       title: Text(
         titleExtend,
-        style: const TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+        style: GoogleFonts.varelaRound(
+          fontSize: 20,
+          fontWeight: FontWeight.w300,
+          color: Colors.white,
+        ),
       ),
       children: [
         ListTile(
           title: Text(
             titlelist,
-            style: const TextStyle(color: Colors.white, fontSize: 20),
+            style: GoogleFonts.nunito(color: Colors.white, fontSize: 22),
           ),
           subtitle: Text(
             subtitle,
-            style: const TextStyle(color: Colors.white, fontSize: 18),
+            style: GoogleFonts.nunito(color: Colors.white, fontSize: 18),
           ),
         )
       ],
