@@ -1,10 +1,16 @@
 // ignore_for_file: file_names
+import 'package:aplikasi_teman_berdoa/screen/detail_screen.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ListTileCustom extends StatelessWidget {
-  String title;
-  ListTileCustom({super.key, required this.title});
+  // String title;
+  final String? namabacaan;
+  final String? arab;
+  final String? terjemahan;
+  final String? latin;
+  const ListTileCustom(
+      {super.key, this.namabacaan, this.arab, this.terjemahan, this.latin});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +22,20 @@ class ListTileCustom extends StatelessWidget {
         ),
       ),
       child: ListTile(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => DetailScreen(
+                namabacaan: namabacaan.toString(),
+                arab: arab ?? "",
+                latin: latin.toString(),
+                terjemahan: terjemahan.toString(),
+              ),
+            ),
+          );
+        },
         title: Text(
-          title,
+          namabacaan.toString(),
           style: const TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 class BacaanSholatScreen extends StatelessWidget {
   static const routename = "/bacaansholat";
-
   const BacaanSholatScreen({super.key});
 
   @override
@@ -14,7 +13,7 @@ class BacaanSholatScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff0B2447),
       appBar: AppBar(
-        title: const Text("Bacaan Sholat"),
+        title: const Text("Teman Doa"),
         backgroundColor: const Color(0xffA5D7E8),
         bottomOpacity: 0,
         elevation: 0,
@@ -22,16 +21,40 @@ class BacaanSholatScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            height: 300,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            height: 250,
             color: const Color(0xffA5D7E8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    SizedBox(
+                      height: 60,
+                    ),
+                    Text(
+                      "Bacaan Sholat",
+                      style:
+                          TextStyle(fontSize: 50, fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      "Mari hafalkan bacaan Sholat",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Column(
             children: [
               const SizedBox(
-                height: 250,
+                height: 230,
               ),
               Container(
-                height: 500,
+                height: 510,
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
@@ -48,7 +71,9 @@ class BacaanSholatScreen extends StatelessWidget {
                         itemCount: _bacaansholat?.length,
                         itemBuilder: (context, index) {
                           return ListTileCustom(
-                            title: _bacaansholat?[index].name ?? "",
+                            namabacaan: _bacaansholat?[index].name ?? "",
+                            arab: _bacaansholat?[index].arabic ?? "",
+                            terjemahan: _bacaansholat?[index].terjemahan ?? "",
                           );
                         },
                       );
