@@ -3,6 +3,7 @@ import 'package:aplikasi_teman_berdoa/widget/listTile_custom_widget.dart';
 // ignore: unused_import
 import 'package:aplikasi_teman_berdoa/widget/expansitiontile_custom_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BacaanSholatScreen extends StatelessWidget {
   static const routename = "/bacaansholat";
@@ -13,7 +14,13 @@ class BacaanSholatScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xff0B2447),
       appBar: AppBar(
-        title: const Text("Teman Doa"),
+        title: Text(
+          "Teman Doa",
+          style: GoogleFonts.nunito(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
         backgroundColor: const Color(0xffA5D7E8),
         bottomOpacity: 0,
         elevation: 0,
@@ -29,21 +36,29 @@ class BacaanSholatScreen extends StatelessWidget {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    SizedBox(
+                  children: [
+                    const SizedBox(
                       height: 60,
                     ),
                     Text(
-                      "Bacaan Sholat",
-                      style:
-                          TextStyle(fontSize: 50, fontWeight: FontWeight.w700),
+                      "Mari Menghafal",
+                      style: GoogleFonts.nunito(
+                        fontSize: 28,
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                     Text(
-                      "Mari hafalkan bacaan Sholat",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                      "Bacaan Sholat",
+                      style: GoogleFonts.nunito(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ],
+                ),
+                Image.asset(
+                  "assets/images/bacaan.png",
+                  width: 180,
                 ),
               ],
             ),
@@ -74,6 +89,7 @@ class BacaanSholatScreen extends StatelessWidget {
                             namabacaan: _bacaansholat?[index].name ?? "",
                             arab: _bacaansholat?[index].arabic ?? "",
                             terjemahan: _bacaansholat?[index].terjemahan ?? "",
+                            latin: _bacaansholat?[index].latin ?? "",
                           );
                         },
                       );

@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:aplikasi_teman_berdoa/screen/detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class ListTileCustom extends StatelessWidget {
@@ -35,8 +36,12 @@ class ListTileCustom extends StatelessWidget {
           );
         },
         title: Text(
-          namabacaan.toString(),
-          style: const TextStyle(fontSize: 20, color: Colors.white),
+          namabacaan ?? "Data Tidak Dapat Diambil",
+          style: GoogleFonts.varelaRound(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.w300,
+          ),
         ),
       ),
     );
