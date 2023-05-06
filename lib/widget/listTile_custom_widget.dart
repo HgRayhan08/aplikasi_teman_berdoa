@@ -16,13 +16,21 @@ class ListTileCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.transparent,
-      shape: const Border(
-        bottom: BorderSide(
-          color: Colors.white,
+      color: const Color(0xff6096B4),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
       ),
       child: ListTile(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+        tileColor: const Color(0xff146C94),
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
