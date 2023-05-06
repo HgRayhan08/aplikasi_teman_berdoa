@@ -36,18 +36,18 @@ class DashboardScreen extends StatelessWidget {
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
                   ),
-                  color: Color(0xff8294C4),
+                  color: Color(0xff6096B4),
                 ),
                 width: double.infinity,
                 height: bodyHeight * 0.3,
               ),
               Positioned(
-                top: 30,
+                top: 20,
                 left: 25,
                 child: Text(
                   "Teman Doa",
                   style: GoogleFonts.nunito(
-                    fontSize: 25,
+                    fontSize: 30,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -56,12 +56,14 @@ class DashboardScreen extends StatelessWidget {
               Column(
                 children: [
                   const SizedBox(
-                    height: 90,
+                    height: 70,
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    height: 220,
-                    margin: const EdgeInsets.symmetric(horizontal: 15),
+                    padding:
+                        const EdgeInsets.only(left: 7, right: 7, bottom: 10),
+                    width: MediaQueryWidth,
+                    height: bodyHeight * 0.33,
+                    margin: const EdgeInsets.symmetric(horizontal: 12),
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(
                         Radius.circular(20),
@@ -77,16 +79,40 @@ class DashboardScreen extends StatelessWidget {
                             offset: const Offset(5, 6))
                       ],
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    child: Stack(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Text(
-                          "Assalamualaikum",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Assalamualaikum",
+                                style: GoogleFonts.nunito(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w800,
+                                    color: Colors.black),
+                              ),
+                              Text(
+                                "Yuk Mari Belajar Berdoa!",
+                                style: GoogleFonts.nunito(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 19,
+                                    color: Colors.black),
+                              )
+                            ],
+                          ),
                         ),
-                        Image.asset(
-                          "assets/images/dashboard.png",
-                          width: 200,
+                        Positioned(
+                          top: bodyHeight * 0.05,
+                          left: bodyHeight * 0.2,
+                          child: Image.asset(
+                            "assets/images/dashboard.png",
+                            width: bodyHeight * 0.35,
+                          ),
                         ),
                       ],
                     ),
@@ -115,7 +141,7 @@ class DashboardScreen extends StatelessWidget {
                           widthImage: MediaQueryHeight * 0.2,
                           text: "Niat Sholat",
                           image: Image.asset(
-                            "assets/images/bacaan.png",
+                            "assets/images/niat.png",
                           ),
                           navigasi: NiatSholatScreen.routename,
                         ),
@@ -125,7 +151,7 @@ class DashboardScreen extends StatelessWidget {
                           widthImage: MediaQueryHeight * 0.2,
                           text: "Bacaan Sholat",
                           image: Image.asset(
-                            "assets/images/niat.png",
+                            "assets/images/bacaan.png",
                           ),
                           navigasi: BacaanSholatScreen.routename,
                         ),
