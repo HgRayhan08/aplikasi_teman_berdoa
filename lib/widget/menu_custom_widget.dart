@@ -1,5 +1,6 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class MenuCustom extends StatelessWidget {
@@ -62,7 +63,7 @@ class MenuCustom extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: Text(
                   text,
-                  style: const TextStyle(
+                  style: GoogleFonts.nunito(
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w700),

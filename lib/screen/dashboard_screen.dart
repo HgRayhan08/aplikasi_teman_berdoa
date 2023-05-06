@@ -3,6 +3,7 @@ import 'package:aplikasi_teman_berdoa/screen/doa_harian_screen.dart';
 import 'package:aplikasi_teman_berdoa/screen/niat_sholat_screen.dart';
 import 'package:aplikasi_teman_berdoa/widget/menu_custom_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DashboardScreen extends StatelessWidget {
   static const routename = "/dashboard";
@@ -40,13 +41,13 @@ class DashboardScreen extends StatelessWidget {
                 width: double.infinity,
                 height: bodyHeight * 0.3,
               ),
-              const Positioned(
+              Positioned(
                 top: 30,
                 left: 25,
                 child: Text(
                   "Teman Doa",
-                  style: TextStyle(
-                    fontSize: 20,
+                  style: GoogleFonts.nunito(
+                    fontSize: 25,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
