@@ -1,6 +1,7 @@
+import 'package:aplikasi_teman_berdoa/screen/bacaan_sholat_screen.dart';
 import 'package:aplikasi_teman_berdoa/screen/doa_harian_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/menu_sholat_screen.dart';
-import 'package:aplikasi_teman_berdoa/widget/menu_dashboard_custom_widget.dart';
+import 'package:aplikasi_teman_berdoa/screen/niat_sholat_screen.dart';
+import 'package:aplikasi_teman_berdoa/widget/menu_custom_widget.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -10,6 +11,13 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
+    final MediaQueryHeight = MediaQuery.of(context).size.height;
+
+    // ignore: non_constant_identifier_names
+    final MediaQueryWidth = MediaQuery.of(context).size.width;
+
+    final bodyHeight = MediaQueryHeight - MediaQuery.of(context).padding.top;
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -18,10 +26,6 @@ class DashboardScreen extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        // backgroundColor: const Color(0xffA5D7E8),
-        // appBar: AppBar(
-        //   title: const Text("sahabat muslim"),
-        // ),
         body: SafeArea(
           child: Stack(
             children: [
@@ -34,7 +38,7 @@ class DashboardScreen extends StatelessWidget {
                   color: Color(0xff8294C4),
                 ),
                 width: double.infinity,
-                height: 240,
+                height: bodyHeight * 0.3,
               ),
               const Positioned(
                 top: 30,
@@ -71,7 +75,6 @@ class DashboardScreen extends StatelessWidget {
                             blurRadius: 3,
                             offset: const Offset(5, 6))
                       ],
-                      // color: Color(0xff0B2447),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -91,29 +94,39 @@ class DashboardScreen extends StatelessWidget {
                     height: 20,
                   ),
                   SizedBox(
-                    height: 200,
-                    // color: Colors.green,
-                    child: GridView.count(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      crossAxisCount: 2,
+                    height: bodyHeight * 0.5,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
                       children: [
-                        MenuDashboardCustom(
-                          nama: "Doa Harian",
+                        MenuCustom(
+                          mediaQueryWidth: MediaQueryWidth,
+                          mediaQueryheight: MediaQueryHeight,
+                          widthImage: MediaQueryHeight * 0.2,
+                          text: "Doa Sehari-Hari",
                           image: Image.asset(
                             "assets/images/doa.png",
-                            width: 90,
                           ),
                           navigasi: DoaHarianScreen.routename,
                         ),
-                        MenuDashboardCustom(
-                          nama: "Doa Harian",
+                        MenuCustom(
+                          mediaQueryWidth: MediaQueryWidth,
+                          mediaQueryheight: MediaQueryHeight,
+                          widthImage: MediaQueryHeight * 0.2,
+                          text: "Niat Sholat",
                           image: Image.asset(
-                            "assets/images/sholat.png",
-                            width: 180,
+                            "assets/images/bacaan.png",
                           ),
-                          navigasi: MenuSholatScreen.routename,
+                          navigasi: NiatSholatScreen.routename,
+                        ),
+                        MenuCustom(
+                          mediaQueryWidth: MediaQueryWidth,
+                          mediaQueryheight: MediaQueryHeight,
+                          widthImage: MediaQueryHeight * 0.2,
+                          text: "Bacaan Sholat",
+                          image: Image.asset(
+                            "assets/images/niat.png",
+                          ),
+                          navigasi: BacaanSholatScreen.routename,
                         ),
                       ],
                     ),
