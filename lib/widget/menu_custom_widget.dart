@@ -35,7 +35,12 @@ class MenuCustom extends StatelessWidget {
               blurRadius: 3,
               offset: const Offset(5, 6))
         ],
-        color: const Color(0xff6096B4),
+        gradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xffDAF5FF), Color(0xff6096B4)],
+          stops: [0.3, 0.9],
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -63,7 +68,7 @@ class MenuCustom extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: Text(
                   text,
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.varelaRound(
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w700),
