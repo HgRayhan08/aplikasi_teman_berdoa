@@ -13,9 +13,10 @@ class NiatSholatScreen extends StatelessWidget {
     final mediaQueryHeight = MediaQuery.of(context).size.height;
 
     final myAppbar = AppBar(
-      backgroundColor: const Color(0xffA5D7E8),
+      backgroundColor: const Color(0xff6096B4),
       bottomOpacity: 0.0,
       elevation: 0.0,
+      surfaceTintColor: const Color(0xff146C94),
       title: Text(
         "Niat Sholat",
         style: GoogleFonts.openSans(
@@ -30,14 +31,13 @@ class NiatSholatScreen extends StatelessWidget {
         MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      backgroundColor: const Color(0xff0B2447),
       appBar: myAppbar,
       body: Stack(
         children: [
           Container(
             height: bodyHeight * 0.4,
             decoration: const BoxDecoration(
-              color: Color(0xffA5D7E8),
+              color: Color(0xff6096B4),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -55,14 +55,18 @@ class NiatSholatScreen extends StatelessWidget {
                       Text(
                         "Mari Menghafal",
                         style: GoogleFonts.nunito(
-                            fontSize: bodyHeight * 0.033,
-                            fontWeight: FontWeight.w900),
+                          fontSize: bodyHeight * 0.034,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white,
+                        ),
                       ),
                       Text(
                         "Niat Sholat",
                         style: GoogleFonts.nunito(
-                            fontSize: bodyHeight * 0.030,
-                            fontWeight: FontWeight.w800),
+                          fontSize: bodyHeight * 0.030,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),
@@ -88,7 +92,7 @@ class NiatSholatScreen extends StatelessWidget {
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
                       ),
-                      color: Color(0xff0B2447),
+                      color: Color(0xff146C94),
                     ),
                     child: FutureBuilder(
                         future: NiatSholatService().niatsholat(),
