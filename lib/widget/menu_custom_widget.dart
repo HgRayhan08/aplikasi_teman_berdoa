@@ -24,11 +24,17 @@ class MenuCustom extends StatelessWidget {
       width: mediaQueryWidth * 0.7,
       height: 200,
       margin: const EdgeInsets.all(20),
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
           Radius.circular(20),
         ),
-        color: Color(0xffF1F6F9),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              blurRadius: 3,
+              offset: const Offset(5, 6))
+        ],
+        color: const Color(0xff6096B4),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -45,7 +51,7 @@ class MenuCustom extends StatelessWidget {
               Navigator.of(context).pushNamed(navigasi!);
             },
             child: Card(
-              color: const Color(0xff8294C4),
+              color: const Color(0xff146C94),
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(20),
@@ -53,10 +59,13 @@ class MenuCustom extends StatelessWidget {
               ),
               elevation: 12,
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(12),
                 child: Text(
                   text,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
             ),
