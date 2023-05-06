@@ -19,7 +19,7 @@ class NiatSholatScreen extends StatelessWidget {
       surfaceTintColor: const Color(0xff146C94),
       title: Text(
         "Niat Sholat",
-        style: GoogleFonts.openSans(
+        style: GoogleFonts.nunito(
           fontSize: 25,
           fontWeight: FontWeight.bold,
         ),
