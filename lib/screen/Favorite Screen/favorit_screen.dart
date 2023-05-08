@@ -1,10 +1,10 @@
 import 'package:aplikasi_teman_berdoa/db/database_helper.dart';
-import 'package:aplikasi_teman_berdoa/widget/listTile_custom_favorite.dart';
+import 'package:aplikasi_teman_berdoa/widget/listTile_custom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FavoriteDoaScreen extends StatelessWidget {
-  const FavoriteDoaScreen({super.key});
+class FavoritScreen extends StatelessWidget {
+  const FavoritScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +39,10 @@ class FavoriteDoaScreen extends StatelessWidget {
               return ListView.builder(
                 itemCount: data?.length ?? 0,
                 itemBuilder: (context, index) {
-                  // return Text(data?[index].title ?? "");
-                  return ListTileFavoriteCustom(
-                    namabacaan: data?[index].title,
-                    arab: data?[index].arabic,
-                    terjemahan: data?[index].translation,
+                  return ListTileCustom(
+                    namabacaan: data?[index].doa,
+                    arab: data?[index].ayat,
+                    terjemahan: data?[index].artinya,
                     latin: data?[index].latin,
                   );
                 },

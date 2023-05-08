@@ -1,20 +1,53 @@
+import 'package:aplikasi_teman_berdoa/db/database_helper.dart';
+import 'package:aplikasi_teman_berdoa/model/local_database/doa_model.dart';
 import 'package:aplikasi_teman_berdoa/service/bacaan_sholat.service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailFavoriteScreen extends StatelessWidget {
+class FavoritDetailScreen extends StatefulWidget {
+  final String id;
   final String namabacaan;
   final String arab;
   final String terjemahan;
   final String latin;
 
-  const DetailFavoriteScreen({
-    super.key,
-    required this.namabacaan,
-    required this.arab,
-    required this.terjemahan,
-    required this.latin,
-  });
+  const FavoritDetailScreen(
+      {super.key,
+      required this.namabacaan,
+      required this.arab,
+      required this.terjemahan,
+      required this.latin,
+      required this.id});
+
+  @override
+  State<FavoritDetailScreen> createState() => _FavoritDetailScreen();
+}
+
+class _FavoritDetailScreen extends State<FavoritDetailScreen> {
+  bool _isInsert = false;
+
+  FavoritDoaTable? _favoriteDoaTable = FavoritDoaTable(
+    doa: "",
+    ayat: "",
+    latin: "",
+    artinya: "",
+    id: "-1",
+  );
+
+  void getFavoriteDoaStatus() async {
+    _favoriteDoaTable = await DatabaseHelper().getStatusDoa(
+      widget.id,
+    );
+    if (_favoriteDoaTable != null) {
+      _isInsert = true;
+    }
+  }
+
+  @override
+  void initState() {
+    getFavoriteDoaStatus();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +71,30 @@ class DetailFavoriteScreen extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 color: const Color(0xff146C94)),
           ),
+          actions: [
+            IconButton(
+              onPressed: () async {
+                if (_isInsert == true) {
+                  _isInsert = false;
+                  DatabaseHelper().deleteDoa(widget.id);
+                } else {
+                  _isInsert = true;
+                  DatabaseHelper().insertDOa(
+                    FavoritDoaTable(
+                        id: widget.id,
+                        doa: widget.namabacaan,
+                        ayat: widget.arab,
+                        latin: widget.latin,
+                        artinya: widget.terjemahan),
+                  );
+                }
+                setState(() {});
+              },
+              icon: _isInsert == true
+                  ? const Icon(Icons.bookmark_remove)
+                  : const Icon(Icons.bookmark_add),
+            ),
+          ],
           backgroundColor: Colors.transparent,
           bottomOpacity: 0,
           elevation: 0,
@@ -66,9 +123,9 @@ class DetailFavoriteScreen extends StatelessWidget {
                             color: Color(0xff6096B4),
                           ),
                           child: Text(
-                            namabacaan,
+                            widget.namabacaan,
                             style: GoogleFonts.nunito(
-                                fontSize: 25,
+                                fontSize: 22,
                                 fontWeight: FontWeight.w800,
                                 color: Colors.white),
                           ),
@@ -85,9 +142,9 @@ class DetailFavoriteScreen extends StatelessWidget {
                               Align(
                                 alignment: Alignment.topRight,
                                 child: Text(
-                                  arab,
+                                  widget.arab,
                                   style: const TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 22,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600),
                                 ),
@@ -97,7 +154,7 @@ class DetailFavoriteScreen extends StatelessWidget {
                                 child: Align(
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    latin,
+                                    widget.latin,
                                     style: GoogleFonts.varelaRound(
                                       color: Colors.white,
                                       fontSize: 17,
@@ -133,7 +190,7 @@ class DetailFavoriteScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                terjemahan,
+                                widget.terjemahan,
                                 style: const TextStyle(
                                     fontSize: 16,
                                     color: Colors.white,

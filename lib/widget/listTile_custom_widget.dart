@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
-import 'package:aplikasi_teman_berdoa/screen/detail_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/Detail/detail_screen.dart';
+// ignore: unused_import
+import 'package:aplikasi_teman_berdoa/screen/Detail/favorit_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,8 +12,13 @@ class ListTileCustom extends StatelessWidget {
   final String? arab;
   final String? terjemahan;
   final String? latin;
-  const ListTileCustom(
-      {super.key, this.namabacaan, this.arab, this.terjemahan, this.latin});
+  const ListTileCustom({
+    super.key,
+    this.namabacaan,
+    this.arab,
+    this.terjemahan,
+    this.latin,
+  });
 
   @override
   Widget build(BuildContext context) {

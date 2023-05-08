@@ -1,10 +1,8 @@
-import 'package:aplikasi_teman_berdoa/db/database_helper.dart';
-import 'package:aplikasi_teman_berdoa/model/local_database/doa_model.dart';
 import 'package:aplikasi_teman_berdoa/service/bacaan_sholat.service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailScreen extends StatefulWidget {
+class DetailScreen extends StatelessWidget {
   final String namabacaan;
   final String arab;
   final String terjemahan;
@@ -17,36 +15,6 @@ class DetailScreen extends StatefulWidget {
     required this.terjemahan,
     required this.latin,
   });
-
-  @override
-  State<DetailScreen> createState() => _DetailScreenState();
-}
-
-class _DetailScreenState extends State<DetailScreen> {
-  bool _isInsert = false;
-
-  FavoritDoaTable? _favoriteDoaTable = FavoritDoaTable(
-    title: "",
-    arabic: "",
-    latin: "",
-    translation: "",
-  );
-
-  void getFavoriteDoaStatus() async {
-    _favoriteDoaTable = await DatabaseHelper().getStatusDoa(
-      widget.namabacaan,
-    );
-
-    if (_favoriteDoaTable != null) {
-      _isInsert = true;
-    }
-  }
-
-  @override
-  void initState() {
-    getFavoriteDoaStatus();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,29 +38,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 fontWeight: FontWeight.w700,
                 color: const Color(0xff146C94)),
           ),
-          actions: [
-            IconButton(
-              onPressed: () async {
-                if (_isInsert == true) {
-                  _isInsert = false;
-                  DatabaseHelper().deleteDoa(widget.namabacaan);
-                } else {
-                  _isInsert = true;
-                  DatabaseHelper().insertDOa(
-                    FavoritDoaTable(
-                        title: widget.namabacaan,
-                        arabic: widget.arab,
-                        latin: widget.latin,
-                        translation: widget.terjemahan),
-                  );
-                }
-                setState(() {});
-              },
-              icon: _isInsert == true
-                  ? const Icon(Icons.bookmark_remove)
-                  : const Icon(Icons.bookmark_add),
-            ),
-          ],
           backgroundColor: Colors.transparent,
           bottomOpacity: 0,
           elevation: 0,
@@ -121,7 +66,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             color: Color(0xff6096B4),
                           ),
                           child: Text(
-                            widget.namabacaan,
+                            namabacaan,
                             style: GoogleFonts.nunito(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w800,
@@ -140,7 +85,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               Align(
                                 alignment: Alignment.topRight,
                                 child: Text(
-                                  widget.arab,
+                                  arab,
                                   style: const TextStyle(
                                       fontSize: 18,
                                       color: Colors.white,
@@ -152,7 +97,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 child: Align(
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    widget.latin,
+                                    latin,
                                     style: GoogleFonts.varelaRound(
                                       color: Colors.white,
                                       fontSize: 17,
@@ -188,7 +133,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 ),
                               ),
                               Text(
-                                widget.terjemahan,
+                                terjemahan,
                                 style: const TextStyle(
                                     fontSize: 16,
                                     color: Colors.white,

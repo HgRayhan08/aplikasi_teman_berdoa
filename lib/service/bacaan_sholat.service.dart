@@ -17,7 +17,6 @@ class BacaanSholatService {
               terjemahan: e["terjemahan"]),
         )
         .toList();
-    // print(_bacaansholat.first.name);
     return _bacaansholat;
   }
 }

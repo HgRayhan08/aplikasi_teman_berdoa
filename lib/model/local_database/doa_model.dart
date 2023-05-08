@@ -1,26 +1,31 @@
 class FavoritDoaTable {
-  final String title;
-  final String arabic;
+  final String id;
+  final String doa;
+  final String ayat;
   final String latin;
-  final String translation;
+  final String artinya;
 
   FavoritDoaTable({
-    required this.title,
-    required this.arabic,
+    required this.id,
+    required this.doa,
+    required this.ayat,
     required this.latin,
-    required this.translation,
+    required this.artinya,
   });
 
   factory FavoritDoaTable.fromMap(Map<String, dynamic> map) => FavoritDoaTable(
-        title: map["title"],
-        arabic: map["arabic"],
+        id: map["id"],
+        doa: map["doa"],
+        ayat: map["ayat"],
         latin: map["latin"],
-        translation: map["translation"],
+        artinya: map["artinya"],
       );
+
   Map<String, dynamic> toMap() => {
-        "title": title,
-        "arabic": arabic,
+        "id": id,
+        "doa": doa,
+        "ayat": ayat,
         "latin": latin,
-        "translation": translation,
+        "artinya": artinya,
       };
 }

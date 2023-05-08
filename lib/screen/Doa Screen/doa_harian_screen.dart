@@ -1,5 +1,5 @@
 import 'package:aplikasi_teman_berdoa/service/doa_service.dart';
-import 'package:aplikasi_teman_berdoa/widget/listTile_custom_widget.dart';
+import 'package:aplikasi_teman_berdoa/widget/listTile_custom_favorite.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -94,13 +94,13 @@ class DoaHarianScreen extends StatelessWidget {
                         // ignore: no_leading_underscores_for_local_identifiers
                         var _doa = snapshot.data;
                         return ListView.builder(
-                          itemCount: _doa?.data.length,
+                          itemCount: _doa?.length,
                           itemBuilder: (context, index) {
-                            return ListTileCustom(
-                              namabacaan: _doa?.data[index].title,
-                              arab: _doa?.data[index].arabic,
-                              latin: _doa?.data[index].latin,
-                              terjemahan: _doa?.data[index].translation,
+                            return ListTileFavoriteCustom(
+                              namabacaan: _doa?[index].doa,
+                              arab: _doa?[index].ayat,
+                              latin: _doa?[index].latin,
+                              terjemahan: _doa?[index].artinya,
                             );
                           },
                         );

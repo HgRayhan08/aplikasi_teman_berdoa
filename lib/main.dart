@@ -1,7 +1,7 @@
-import 'package:aplikasi_teman_berdoa/screen/bacaan_sholat_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/Bacaan%20Sholat/bacaan_sholat_screen.dart';
 import 'package:aplikasi_teman_berdoa/screen/dashboard_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/doa_harian_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/niat_sholat_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/Doa%20Screen/doa_harian_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/Niat%20Screen/niat_sholat_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

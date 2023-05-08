@@ -1,53 +1,41 @@
-// To parse this JSON data, do
-//
-//     final listDoaResponse = listDoaResponseFromJson(jsonString);
-
 import 'dart:convert';
 
-ListDoaResponse listDoaResponseFromJson(String str) => ListDoaResponse.fromJson(json.decode(str));
+List<ListDoaResponse> listDoaResponseFromJson(String str) =>
+    List<ListDoaResponse>.from(
+        json.decode(str).map((x) => ListDoaResponse.fromJson(x)));
 
-String listDoaResponseToJson(ListDoaResponse data) => json.encode(data.toJson());
+String listDoaResponseToJson(List<ListDoaResponse> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class ListDoaResponse {
-    List<Datum> data;
+  String id;
+  String doa;
+  String ayat;
+  String latin;
+  String artinya;
 
-    ListDoaResponse({
-        required this.data,
-    });
+  ListDoaResponse({
+    required this.id,
+    required this.doa,
+    required this.ayat,
+    required this.latin,
+    required this.artinya,
+  });
 
-    factory ListDoaResponse.fromJson(Map<String, dynamic> json) => ListDoaResponse(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    String title;
-    String arabic;
-    String latin;
-    String translation;
-
-    Datum({
-        required this.title,
-        required this.arabic,
-        required this.latin,
-        required this.translation,
-    });
-
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        title: json["title"],
-        arabic: json["arabic"],
+  factory ListDoaResponse.fromJson(Map<String, dynamic> json) =>
+      ListDoaResponse(
+        id: json["id"],
+        doa: json["doa"],
+        ayat: json["ayat"],
         latin: json["latin"],
-        translation: json["translation"],
-    );
+        artinya: json["artinya"],
+      );
 
-    Map<String, dynamic> toJson() => {
-        "title": title,
-        "arabic": arabic,
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "doa": doa,
+        "ayat": ayat,
         "latin": latin,
-        "translation": translation,
-    };
+        "artinya": artinya,
+      };
 }

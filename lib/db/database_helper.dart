@@ -17,7 +17,7 @@ class DatabaseHelper {
     return _database;
   }
 
-  final String _tableName = 'tbl_doa';
+  final String _tableName = 'tbl_doaharian';
 
   Future<Database> _initializeDB() async {
     var db = openDatabase(
@@ -26,7 +26,7 @@ class DatabaseHelper {
           'doa_db.db',
         ), onCreate: (db, version) async {
       await db.execute(
-        '''CREATE TABLE $_tableName(title TEXT PRIMARY KEY, arabic TEXT, latin TEXT, translation TEXT)''',
+        '''CREATE TABLE $_tableName(id TEXT PRIMARY KEY  ,doa TEXT , ayat TEXT , latin TEXT , artinya TEXT)''',
       );
     }, version: 1);
 
@@ -48,18 +48,18 @@ class DatabaseHelper {
     await db.insert(_tableName, favoritDoaTable.toMap());
   }
 
-  Future<int> deleteDoa(String title) async {
+  Future<int> deleteDoa(String id) async {
     final db = await database;
-    return await db.delete(_tableName, where: 'title = ? ', whereArgs: [title]);
+    return await db.delete(_tableName, where: 'id = ? ', whereArgs: [id]);
   }
 
-  Future<FavoritDoaTable> getStatusDoa(String title) async {
+  Future<FavoritDoaTable> getStatusDoa(String id) async {
     final db = await database;
 
     List<Map<String, dynamic>> results = await db.query(
       _tableName,
-      where: 'title = ?',
-      whereArgs: [title],
+      where: 'id = ?',
+      whereArgs: [id],
     );
 
     return results
