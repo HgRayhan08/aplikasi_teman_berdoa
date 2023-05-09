@@ -142,7 +142,7 @@ class _DetailisBookmarks extends State<DetailisBookmarks> {
                                 child: Text(
                                   widget.arab,
                                   style: const TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 22,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600),
                                 ),

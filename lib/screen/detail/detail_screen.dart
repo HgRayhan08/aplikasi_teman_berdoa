@@ -87,7 +87,7 @@ class DetailDoaScreen extends StatelessWidget {
                                 child: Text(
                                   arab,
                                   style: const TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 22,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w600),
                                 ),
