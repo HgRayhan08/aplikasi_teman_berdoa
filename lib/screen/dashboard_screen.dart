@@ -1,7 +1,7 @@
-import 'package:aplikasi_teman_berdoa/screen/bacaan_sholat_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/doa_harian_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/favorite_doa_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/niat_sholat_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/bacaan%20sholat/bacaan_sholat_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/doa/doa_harian_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/bookmarks/bookmarks_doa_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/niat%20sholat/niat_sholat_screen.dart';
 import 'package:aplikasi_teman_berdoa/widget/menu_custom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -63,7 +63,7 @@ class DashboardScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => const FavoriteDoaScreen(),
+                              builder: (context) => const BookmarksDoaScreen(),
                             ),
                           );
                         },

@@ -2,13 +2,13 @@ import 'package:aplikasi_teman_berdoa/service/bacaan_sholat.service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailFavoriteScreen extends StatelessWidget {
+class DetailisBookmarksScreen extends StatelessWidget {
   final String namabacaan;
   final String arab;
   final String terjemahan;
   final String latin;
 
-  const DetailFavoriteScreen({
+  const DetailisBookmarksScreen({
     super.key,
     required this.namabacaan,
     required this.arab,

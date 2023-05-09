@@ -1,16 +1,16 @@
 // ignore_for_file: file_names
-import 'package:aplikasi_teman_berdoa/screen/detail_favorite_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/detail/detail_isbookmarks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
-class ListTileFavoriteCustom extends StatelessWidget {
+class ListTileBookmarksCustom extends StatelessWidget {
   // String title;
   final String? namabacaan;
   final String? arab;
   final String? terjemahan;
   final String? latin;
-  const ListTileFavoriteCustom(
+  const ListTileBookmarksCustom(
       {super.key, this.namabacaan, this.arab, this.terjemahan, this.latin});
 
   @override
@@ -29,7 +29,7 @@ class ListTileFavoriteCustom extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => DetailFavoriteScreen(
+              builder: (context) => DetailisBookmarksScreen(
                 namabacaan: namabacaan.toString(),
                 arab: arab ?? "",
                 latin: latin.toString(),

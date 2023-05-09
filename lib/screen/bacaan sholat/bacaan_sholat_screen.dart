@@ -1,9 +1,10 @@
-import 'package:aplikasi_teman_berdoa/service/bacaan_sholat.service.dart';
+import 'package:aplikasi_teman_berdoa/provider/provider_bacaan_sholat.dart';
 import 'package:aplikasi_teman_berdoa/widget/listTile_custom_widget.dart';
 // ignore: unused_import
 import 'package:aplikasi_teman_berdoa/widget/expansitiontile_custom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class BacaanSholatScreen extends StatelessWidget {
   static const routename = "/bacaansholat";
@@ -11,6 +12,8 @@ class BacaanSholatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    final _bacaanSholat = Provider.of<ProviderBacaanSholat>(context);
     final mediaQueryHeight = MediaQuery.of(context).size.height;
 
     final myAppbar = AppBar(
@@ -90,7 +93,7 @@ class BacaanSholatScreen extends StatelessWidget {
                           ),
                           color: Color(0xff146C94)),
                       child: FutureBuilder(
-                        future: BacaanSholatService().bacaansholat(),
+                        future: _bacaanSholat.bacaansholat(),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             // ignore: no_leading_underscores_for_local_identifiers
