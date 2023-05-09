@@ -17,7 +17,6 @@ class ProviderNiatSholat with ChangeNotifier {
               terjemahan: e["terjemahan"]),
         )
         .toList();
-    // print(_niatsholat.first.name);
     return _niatsholat;
   }
 }

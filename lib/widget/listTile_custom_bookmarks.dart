@@ -29,7 +29,7 @@ class ListTileBookmarksCustom extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => DetailisBookmarksScreen(
+              builder: (context) => DetailisBookmarks(
                 namabacaan: namabacaan.toString(),
                 arab: arab ?? "",
                 latin: latin.toString(),
@@ -45,11 +45,6 @@ class ListTileBookmarksCustom extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
-        ),
-        trailing: const Icon(
-          Icons.arrow_right,
-          size: 50,
-          color: Colors.white,
         ),
       ),
     );

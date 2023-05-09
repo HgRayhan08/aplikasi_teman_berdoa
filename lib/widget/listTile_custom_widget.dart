@@ -34,7 +34,7 @@ class ListTileCustom extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => DetailScreen(
+              builder: (context) => DetailDoaScreen(
                 namabacaan: namabacaan.toString(),
                 arab: arab ?? "",
                 latin: latin.toString(),

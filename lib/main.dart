@@ -1,4 +1,6 @@
+import 'package:aplikasi_teman_berdoa/provider/provider_bacaan_sholat.dart';
 import 'package:aplikasi_teman_berdoa/provider/provider_doa.dart';
+import 'package:aplikasi_teman_berdoa/provider/provider_niat_sholat.dart';
 import 'package:aplikasi_teman_berdoa/screen/bacaan%20sholat/bacaan_sholat_screen.dart';
 import 'package:aplikasi_teman_berdoa/screen/dashboard_screen.dart';
 import 'package:aplikasi_teman_berdoa/screen/doa/doa_harian_screen.dart';
@@ -7,12 +9,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(
-      create: (_) => ProviderDoa(),
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ProviderDoa(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ProviderBacaanSholat(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ProviderNiatSholat(),
+        ),
+      ],
+      child: const MyApp(),
     ),
-    
-  ], child: const MyApp()));
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +40,6 @@ class MyApp extends StatelessWidget {
         BacaanSholatScreen.routename: (context) => const BacaanSholatScreen(),
         DoaHarianScreen.routename: (context) => const DoaHarianScreen(),
         NiatSholatScreen.routename: (context) => const NiatSholatScreen(),
-        
       },
     );
   }

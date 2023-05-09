@@ -1,7 +1,5 @@
-import 'package:aplikasi_teman_berdoa/provider/provider_bacaan_sholat.dart';
 import 'package:aplikasi_teman_berdoa/provider/provider_doa.dart';
-import 'package:aplikasi_teman_berdoa/service/doa_service.dart';
-import 'package:aplikasi_teman_berdoa/widget/listTile_custom_widget.dart';
+import 'package:aplikasi_teman_berdoa/widget/listTile_custom_bookmarks.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +10,7 @@ class DoaHarianScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     final _doaHarian = Provider.of<ProviderDoa>(context);
     final mediaQueryheight = MediaQuery.of(context).size.height;
 
@@ -100,7 +99,7 @@ class DoaHarianScreen extends StatelessWidget {
                         return ListView.builder(
                           itemCount: _doa?.data.length,
                           itemBuilder: (context, index) {
-                            return ListTileCustom(
+                            return ListTileBookmarksCustom(
                               namabacaan: _doa?.data[index].title,
                               arab: _doa?.data[index].arabic,
                               latin: _doa?.data[index].latin,

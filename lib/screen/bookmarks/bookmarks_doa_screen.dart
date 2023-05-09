@@ -21,7 +21,7 @@ class BookmarksDoaScreen extends StatelessWidget {
             color: Color(0xff146C94),
           ),
           title: Text(
-            "Favorite Bacaan",
+            "Bookmarks",
             style: GoogleFonts.nunito(
                 fontSize: 25,
                 fontWeight: FontWeight.w700,
