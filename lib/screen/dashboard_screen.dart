@@ -1,6 +1,7 @@
-import 'package:aplikasi_teman_berdoa/screen/bacaan_sholat_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/doa_harian_screen.dart';
-import 'package:aplikasi_teman_berdoa/screen/niat_sholat_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/bacaan%20sholat/bacaan_sholat_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/doa/doa_harian_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/bookmarks/bookmarks_doa_screen.dart';
+import 'package:aplikasi_teman_berdoa/screen/niat%20sholat/niat_sholat_screen.dart';
 import 'package:aplikasi_teman_berdoa/widget/menu_custom_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,14 +43,37 @@ class DashboardScreen extends StatelessWidget {
                 height: bodyHeight * 0.3,
               ),
               Positioned(
-                top: 20,
-                left: 25,
-                child: Text(
-                  "Teman Doa",
-                  style: GoogleFonts.nunito(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                top: 15,
+                child: Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: MediaQueryWidth * 0.05),
+                  width: MediaQueryWidth,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Teman Doa",
+                        style: GoogleFonts.nunito(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const BookmarksDoaScreen(),
+                            ),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.bookmark,
+                          size: 35,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
