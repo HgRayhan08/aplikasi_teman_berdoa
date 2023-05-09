@@ -25,16 +25,14 @@ class ListTileCustom extends StatelessWidget {
     return Card(
       color: const Color(0xff6096B4),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
         ),
       ),
       child: ListTile(
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
           ),
         ),
         tileColor: const Color(0xff146C94),

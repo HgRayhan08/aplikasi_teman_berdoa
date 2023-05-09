@@ -1,8 +1,9 @@
-import 'package:aplikasi_teman_berdoa/service/niat_sholat_service.dart';
+import 'package:aplikasi_teman_berdoa/provider/provider_niat.dart';
 import 'package:aplikasi_teman_berdoa/widget/expansitiontile_custom_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class NiatSholatScreen extends StatelessWidget {
   static const routename = "/niatsholat";
@@ -10,6 +11,8 @@ class NiatSholatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    final _niatProvider = Provider.of<NiatProvider>(context);
     final mediaQueryHeight = MediaQuery.of(context).size.height;
 
     final myAppbar = AppBar(
@@ -95,7 +98,7 @@ class NiatSholatScreen extends StatelessWidget {
                       color: Color(0xff146C94),
                     ),
                     child: FutureBuilder(
-                        future: NiatSholatService().niatsholat(),
+                        future: _niatProvider.niatsholat(),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             // ignore: no_leading_underscores_for_local_identifiers

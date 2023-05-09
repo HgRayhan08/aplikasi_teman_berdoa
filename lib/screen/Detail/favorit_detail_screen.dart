@@ -27,11 +27,11 @@ class _FavoritDetailScreen extends State<FavoritDetailScreen> {
   bool _isInsert = false;
 
   FavoritDoaTable? _favoriteDoaTable = FavoritDoaTable(
+    id: "",
     doa: "",
     ayat: "",
     latin: "",
     artinya: "",
-    id: "-1",
   );
 
   void getFavoriteDoaStatus() async {
