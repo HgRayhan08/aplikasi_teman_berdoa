@@ -9,13 +9,15 @@ class DetailisBookmarks extends StatefulWidget {
   final String arab;
   final String terjemahan;
   final String latin;
+  bool? isBookMarks;
 
-  const DetailisBookmarks({
+  DetailisBookmarks({
     super.key,
     required this.namabacaan,
     required this.arab,
     required this.terjemahan,
     required this.latin,
+    this.isBookMarks = false,
   });
 
   @override
@@ -71,27 +73,29 @@ class _DetailisBookmarks extends State<DetailisBookmarks> {
                 color: const Color(0xff146C94)),
           ),
           actions: [
-            IconButton(
-              onPressed: () async {
-                if (_isInsert == true) {
-                  _isInsert = false;
-                  DatabaseHelper().deleteDoa(widget.namabacaan);
-                } else {
-                  _isInsert = true;
-                  DatabaseHelper().insertDOa(
-                    FavoritDoaTable(
-                        title: widget.namabacaan,
-                        arabic: widget.arab,
-                        latin: widget.latin,
-                        translation: widget.terjemahan),
-                  );
-                }
-                setState(() {});
-              },
-              icon: _isInsert == true
-                  ? const Icon(Icons.bookmark_remove)
-                  : const Icon(Icons.bookmark_add),
-            ),
+            if (widget.isBookMarks == true) ...[
+              IconButton(
+                onPressed: () async {
+                  if (_isInsert == true) {
+                    _isInsert = false;
+                    DatabaseHelper().deleteDoa(widget.namabacaan);
+                  } else {
+                    _isInsert = true;
+                    DatabaseHelper().insertDOa(
+                      FavoritDoaTable(
+                          title: widget.namabacaan,
+                          arabic: widget.arab,
+                          latin: widget.latin,
+                          translation: widget.terjemahan),
+                    );
+                  }
+                  setState(() {});
+                },
+                icon: _isInsert == true
+                    ? const Icon(Icons.bookmark_remove)
+                    : const Icon(Icons.bookmark_add),
+              ),
+            ]
           ],
           backgroundColor: Colors.transparent,
           bottomOpacity: 0,
